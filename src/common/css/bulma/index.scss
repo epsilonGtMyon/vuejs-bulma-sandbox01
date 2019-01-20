@@ -1,0 +1,27 @@
+@charset "utf-8";
+
+@import "~bulma/sass/utilities/_all";
+@import './custom-variables.scss';
+
+@import "~bulma";
+@import "~buefy/src/scss/buefy";
+
+html {
+  overflow-y: auto;
+}
+
+
+
+.modal-card-head {
+  @each $name, $pair in $colors {
+    $color: nth($pair, 1);
+    $color-invert: nth($pair, 2);
+    &.is-#{$name} {
+      background-color: $color;
+      border-color: transparent;
+      .modal-card-title {
+        color: $color-invert;
+      }
+    }
+  }
+}

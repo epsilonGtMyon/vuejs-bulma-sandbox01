@@ -3,7 +3,7 @@ const path = require('path')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
-const pageRoot = path.resolve(__dirname, 'src/page') + '/'
+const pageRoot = path.resolve(__dirname, 'src/pages') + '/'
 
 const entries = (function () {
 
