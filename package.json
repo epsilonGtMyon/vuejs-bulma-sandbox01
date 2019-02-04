@@ -4,7 +4,7 @@
   "scripts": {
     "dev": "webpack --mode=development",
     "devw": "webpack --mode=development --watch",
-    "devs": "webpack-dev-server --mode=development",
+    "serve": "webpack-dev-server --mode=development",
     "release": "webpack --mode=production"
   },
   "dependencies": {
