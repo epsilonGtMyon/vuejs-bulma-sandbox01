@@ -2,9 +2,11 @@ const fs = require('fs')
 const path = require('path')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 const pageRoot = path.resolve(__dirname, 'src/pages') + '/'
 
+//entrypoint
 const entries = (function() {
   //通常のページ用
   const pageEntries = {}
@@ -28,6 +30,9 @@ const entries = (function() {
   return es
 })()
 
+//output
+const outputPath = path.resolve(__dirname, 'dist/compiled')
+
 module.exports = (env, argv) => {
 
   const setting = {
@@ -35,7 +40,7 @@ module.exports = (env, argv) => {
     output: {
       filename: '[name].js',
       chunkFilename: '[name].js',
-      path: path.resolve(__dirname, 'dist/compiled')
+      path: outputPath
     },
 
     resolve: {
@@ -92,6 +97,7 @@ module.exports = (env, argv) => {
       ]
     },
     plugins: [
+      new CleanWebpackPlugin([outputPath], {allowExternal: true}),
       new VueLoaderPlugin(),
       new MiniCssExtractPlugin({
         // Options similar to the same options in webpackOptions.output
